@@ -22,23 +22,23 @@ def muscle(now):
 
 	url = 'https://slack.com/api/channels.list'
 	parameters = {'token' : slackbot_settings.API_TOKEN}
-	json_2 = getJson(url, parameters)
+	json = getJson(url, parameters)
 
-	for i in range(len(json_2['channels'])):
-		channelId = json_2['channels'][i]['id']
+	for i in range(len(json['channels'])):
+		channelId = json['channels'][i]['id']
 		parameters['channel'] = channelId
 		url = 'https://slack.com/api/channels.history'
-		json = getJson(url, parameters)
+		json_2 = getJson(url, parameters)
 
-		for j in range(len(json['messages'])):
-			messagePostTime = datetime.datetime.fromtimestamp(float(json['messages'][j]['ts']))
+		for j in range(len(json_2['messages'])):
+			messagePostTime = datetime.datetime.fromtimestamp(float(json_2['messages'][j]['ts']))
 			# Time comparison
 			if messagePostTime >= yesterday:
 				# Muscle Counter
-				if 'reactions' in json['messages'][j]:
-					muscleCount += muscleCounter(json['messages'][j]['reactions'])
-				else:
-					break
+				if 'reactions' in json_2['messages'][j]:
+					muscleCount += muscleCounter(json_2['messages'][j]['reactions'])
+			else:
+				break
 	
 	return muscleCount
 
@@ -52,7 +52,7 @@ def postMessage(count):
 if __name__ == '__main__':
 	while(True):
 		now = datetime.datetime.now().strftime('%H:%M:%S')
-		if now == '21:00:00':
+		if now == '22:00:00':
 			muscleCount = muscle(datetime.datetime.now())
 			time.sleep(1)
 			postMessage(muscleCount)
