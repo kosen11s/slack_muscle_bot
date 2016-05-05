@@ -8,6 +8,7 @@ def fight(message):
 	message.react('muscle')
 
 @listen_to('muscle')
+@listen_to('マッスル')
 def muscle(message):
 	message.send(':muscle::muscle:')
 	message.react('muscle')
