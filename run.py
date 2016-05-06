@@ -1,22 +1,27 @@
 from slackbot.bot import Bot
 from slackbot.bot import listen_to
-import slackbot_settings
-
-@listen_to('筋トレ')
-def fight(message):
-	message.reply('その意気じゃ！！!:muscle:')
-	message.react('muscle')
+import slackbot_settings, json, requests
 
 @listen_to('muscle')
 @listen_to('マッスル')
 def muscle(message):
-	message.send(':muscle::muscle:')
-	message.react('muscle')
+	try:
+		message.send(':muscle::muscle:')
+		message.react('muscle')
+	except Exception as e:
+		print(type(e))
 
 @listen_to('しない')
+@listen_to('ダメだ')
+@listen_to('だめだ')
+@listen_to('つかれた')
+@listen_to('疲れた')
 def anger(message):
-	message.reply('筋肉してこそ人生だ:rage:')
-	message.react('volcano')
+	try:
+		message.reply('筋肉あってこそ人生だ:rage:')
+		message.react('volcano')
+	except Exception as e:
+		print(type(e))
 
 @listen_to('ダブルバイセプス')
 @listen_to('ラットスプレッド')
@@ -27,8 +32,11 @@ def anger(message):
 @listen_to('モストマスキュラー')
 @listen_to('オリバーポーズ')
 def muscle(message):
-	message.send('キレてるキレてるー！！ :muscle::muscle:')
-	message.react('muscle')
+	try:
+		message.send('キレてるキレてるー！！ :muscle::muscle:')
+		message.react('muscle')
+	except Exception as e:
+		print(type(e))
 
 if __name__ == "__main__":
 	bot = Bot()
