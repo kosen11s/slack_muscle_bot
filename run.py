@@ -16,7 +16,7 @@ def muscle(message):
 @listen_to('しない')
 def anger(message):
 	message.reply('筋肉してこそ人生だ:rage:')
-	message.react(':volcano:')
+	message.react('volcano')
 
 if __name__ == "__main__":
 	bot = Bot()
