@@ -18,6 +18,18 @@ def anger(message):
 	message.reply('筋肉してこそ人生だ:rage:')
 	message.react('volcano')
 
+@listen_to('ダブルバイセプス')
+@listen_to('ラットスプレッド')
+@listen_to('サイドチェスト')
+@listen_to('サイドトライセプス')
+@listen_to('アブドミナル & サイ')
+@listen_to('アブドミナル&サイ')
+@listen_to('モストマスキュラー')
+@listen_to('オリバーポーズ')
+def muscle(message):
+	message.send('キレてるキレてるー！！ :muscle::muscle:')
+	message.react('muscle')
+
 if __name__ == "__main__":
 	bot = Bot()
 	bot.run()
