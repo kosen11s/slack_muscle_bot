@@ -23,6 +23,7 @@ def anger(message):
 @listen_to('サイドチェスト')
 @listen_to('サイドトライセプス')
 @listen_to('アブドミナル & サイ')
+@listen_to('アブドミナル&サイ')
 @listen_to('モストマスキュラー')
 @listen_to('オリバーポーズ')
 def muscle(message):
