@@ -6,7 +6,7 @@ import random as rd
 @listen_to('筋肉ルーレット')
 def roulette(message):
 	menu = ['腕立て伏せ', '腹筋', 'スクワット', 'フロントプランク', 'ヒップリフト']
-	message.reply(menu[rd.randint(0, len(menu) - 1)])
+	message.reply(menu[rd.randint(0, (len(menu) - 1))])
 	message.react('muscle')
 
 @listen_to('muscle')
