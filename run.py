@@ -5,12 +5,9 @@ import random as rd
 
 @listen_to('筋肉ルーレット')
 def roulette(message):
-	try:
-		muscleRoulette = ['腕立て伏せ', '腹筋', 'スクワット', 'フロントプランク', 'ヒップリフト']
-		message.reply(rd.randint(0, len(muscleRoulette) - 1))
-		message.react('muscle')
-	except Exception as e:
-		print(type(e))
+	menu = ['腕立て伏せ', '腹筋', 'スクワット', 'フロントプランク', 'ヒップリフト']
+	message.reply(menu[rd.randint(0, len(menu) - 1)])
+	message.react('muscle')
 
 @listen_to('muscle')
 @listen_to('マッスル')
