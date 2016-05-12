@@ -1,5 +1,6 @@
 from slacker import Slacker
 import sys, os, time, json, datetime, requests
+import random as rd
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
 import slackbot_settings
 
@@ -43,10 +44,11 @@ def muscle(now):
 	return muscleCount
 
 def postMessage(count):
+	menu = ['腕立て伏せ', '腹筋', 'スクワット', 'フロントプランク', 'ヒップリフト']
 	slack = Slacker(slackbot_settings.API_TOKEN)
 	slack.chat.post_message(
 		'muscle',
-		'寝る前に今日も' + str(count) + '回腹筋してマッスルじゃ:muscle:',
+		'寝る前に今日も' + str(count) + menu[rd.randint(0, (len(menu) - 1))] + '回腹筋してマッスルじゃ:muscle:',
 		as_user=True)
 
 if __name__ == '__main__':
