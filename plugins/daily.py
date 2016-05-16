@@ -48,7 +48,7 @@ def postMessage(count):
 	slack = Slacker(slackbot_settings.API_TOKEN)
 	slack.chat.post_message(
 		'muscle',
-		'寝る前に今日も' + str(count) + menu[rd.randint(0, (len(menu) - 1))] + '回腹筋してマッスルじゃ:muscle:',
+		'寝る前に今日も' + str(count + 50) + "回"  + menu[rd.randint(0, (len(menu) - 1))] + 'をしてマッスルじゃ:muscle:',
 		as_user=True)
 
 if __name__ == '__main__':
